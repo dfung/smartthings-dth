@@ -41,8 +41,8 @@ metadata {
                 capability "Sensor"
                 
                 capability "Configuration"
-        		capability "Refresh"
- 		        capability "Health Check"
+        	capability "Refresh"
+ 		capability "Health Check"
         
                 command "enrollResponse"
 
@@ -259,13 +259,13 @@ def formatDate(batteryReset) {
 }
 
 def updated() {
-	log.debug "Device updated..."
-	configure()
+    log.debug "Device updated..."
+    configure()
 }
 
 def ping() {
     log.debug "Ping"
-	return zigbee.readAttribute(zigbee.IAS_ZONE_CLUSTER, ATTRIBUTE_IAS_ZONE_STATUS)
+    return zigbee.readAttribute(zigbee.IAS_ZONE_CLUSTER, ATTRIBUTE_IAS_ZONE_STATUS)
 }
 
 
