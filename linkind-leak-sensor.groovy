@@ -41,8 +41,8 @@ metadata {
                 capability "Sensor"
                 
                 capability "Configuration"
-        	capability "Refresh"
- 		capability "Health Check"
+                capability "Refresh"
+                capability "Health Check"
         
                 command "enrollResponse"
 
@@ -50,10 +50,10 @@ metadata {
                 
         }
  
-	    preferences {	
+        preferences {	
             input name: "logEnable", type: "bool", title: "Enable debug logging", defaultValue: true
             input name: "txtEnable", type: "bool", title: "Enable descriptionText logging", defaultValue: true
-	    }
+        }
 }
 
 // Build a list of maps with parsed attributes
@@ -66,7 +66,6 @@ private List<Map> collectAttributes(Map descMap) {
     }
     
     log.debug "collectAttributes() $descMaps"
-
 
     return  descMaps
 }
@@ -214,7 +213,7 @@ def refresh() {
 // configure() runs after installed() when a sensor is paired or reconnected
 def configure() {
     log.debug "configure()"
-    def cmds = ""
+    def cmds = []
     
     // Query some of the basic values
     cmds += zigbee.readAttribute(0x0000, 0x0006) // date code
